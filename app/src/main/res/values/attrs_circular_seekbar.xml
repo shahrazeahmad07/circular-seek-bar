@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="CircularSeekbar">
+        <attr name="circularSeekbarTrackColor" format="color"/>
+        <attr name="circularSeekbarProgressColor" format="color"/>
+        <attr name="circularSeekbarInnerThumbColor" format="color"/>
+        <attr name="circularSeekbarOuterThumbColor" format="color"/>
+        <attr name="circularSeekbarInnerThumbRadius" format="dimension"/>
+        <attr name="circularSeekbarOuterThumbRadius" format="dimension"/>
+        <attr name="circularSeekbarTrackWidth" format="dimension"/>
+        <attr name="circularSeekbarProgressWidth" format="dimension"/>
+        <attr name="circularSeekbarMaxProgress" format="float"/>
+        <attr name="circularSeekbarProgress" format="float"/>
+        <attr name="circularSeekbarInnerPadding" format="float"/>
+    </declare-styleable>
+</resources>

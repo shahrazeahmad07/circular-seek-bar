@@ -22,11 +22,11 @@ class CircularSeekbar @JvmOverloads constructor(context: Context, attrs: Attribu
 
     private var radius = 0f
 
-    private var trackColor: Int = Color.GRAY
+    private var trackColor: Int = Color.LTGRAY
     private var trackWidth: Float = 10F
-    private var progressColor: Int = Color.BLUE
+    private var progressColor: Int = Color.GRAY
     private var progressWidth: Float = 10f
-    private var innerThumbColor: Int = Color.BLUE
+    private var innerThumbColor: Int = Color.YELLOW
     private var outerThumbColor: Int = Color.BLACK
 
     private var trackPaint: Paint = Paint()

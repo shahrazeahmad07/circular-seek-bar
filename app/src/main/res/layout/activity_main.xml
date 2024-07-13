@@ -8,18 +8,15 @@
     tools:context=".MainActivity">
 
     <com.example.customcircularseekbar.custom.CircularSeekbar
+        android:id="@+id/circularSeekbar"
         android:layout_width="100dp"
         android:layout_height="100dp"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:circularSeekbarTrackColor="@android:color/darker_gray"
         app:circularSeekbarMaxProgress="200"
-        app:circularSeekbarTrackWidth="5dp"
-        app:circularSeekbarProgressWidth="8dp"
-        app:circularSeekbarProgress="100"
-        app:circularSeekbarProgressColor="@android:color/black"/>
+        app:circularSeekbarProgress="100" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

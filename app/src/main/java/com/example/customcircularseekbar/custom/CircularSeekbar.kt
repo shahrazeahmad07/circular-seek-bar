@@ -17,10 +17,11 @@ import kotlin.math.max
 import kotlin.math.sin
 
 class CircularSeekbar @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0) : View(context, attrs, defStyleAttr) {
-    private var halfWidth = 0F
-    private var halfHeight = 0F
+    private var halfWidth = 0f
+    private var halfHeight = 0f
 
     private var radius = 0f
+    private lateinit var rectF: RectF
 
     private var trackColor: Int = Color.LTGRAY
     private var trackWidth: Float = 10F
@@ -87,7 +88,6 @@ class CircularSeekbar @JvmOverloads constructor(context: Context, attrs: Attribu
         }
     }
 
-
     fun setOnCircularProgressChangeListener(circularProgressChangeListener: CircularProgressChangeListener) {
         this.circularProgressChangeListener = circularProgressChangeListener
     }
@@ -132,18 +132,22 @@ class CircularSeekbar @JvmOverloads constructor(context: Context, attrs: Attribu
         outerThumbPaint.style = Paint.Style.FILL
     }
 
-    override fun onDraw(canvas: Canvas) {
-        super.onDraw(canvas)
-        halfWidth = canvas.width / 2f
-        halfHeight = canvas.height / 2f
+    override fun onSizeChanged(w: Int, h: Int, oldw: Int, oldh: Int) {
+        super.onSizeChanged(w, h, oldw, oldh)
+        halfWidth = w / 2f
+        halfHeight = h / 2f
         radius = halfWidth.coerceAtMost(halfHeight) - innerPaddingRatio
 
-        val rectF = RectF(
+        rectF = RectF(
             halfWidth - radius,
             halfHeight - radius,
             halfWidth + radius,
             halfHeight + radius
         )
+    }
+
+    override fun onDraw(canvas: Canvas) {
+        super.onDraw(canvas)
 
         val normalizedProgress = (progress - minProgress) / (maxProgress - minProgress)
         val thumbCenter = normalizedProgress * 360F
@@ -180,14 +184,11 @@ class CircularSeekbar @JvmOverloads constructor(context: Context, attrs: Attribu
         val angle = (Math.toDegrees(atan2(x.toDouble(), -y.toDouble())) + 360) % 360
         val normalizedProgress = angle.toFloat() / 360f
         val temp = minProgress + normalizedProgress * (maxProgress - minProgress)
-        if(progress != temp) {
+        if (progress != temp) {
             progress = temp
         }
     }
 
-    /**
-     * Listener for listening various progress change action and the latest progress value.
-     */
     interface CircularProgressChangeListener {
         fun onProgressChangeStart()
         fun onProgressChange(progress: Float)

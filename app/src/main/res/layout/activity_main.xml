@@ -16,7 +16,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:circularSeekbarMaxProgress="200"
-        app:circularSeekbarProgress="100" />
+        app:circularSeekbarProgress="150" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

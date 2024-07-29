@@ -110,8 +110,14 @@ class CircularSeekbar @JvmOverloads constructor(context: Context, attrs: Attribu
         trackWidth = typedArray.getDimension(R.styleable.CircularSeekbar_circularSeekbarTrackWidth, trackWidth)
         progressWidth = typedArray.getDimension(R.styleable.CircularSeekbar_circularSeekbarProgressWidth, progressWidth)
 
-        maxProgress = typedArray.getFloat(R.styleable.CircularSeekbar_circularSeekbarMaxProgress, maxProgress)
-        progress = typedArray.getFloat(R.styleable.CircularSeekbar_circularSeekbarProgress, progress)
+        val maxProgressValue = typedArray.getFloat(R.styleable.CircularSeekbar_circularSeekbarMaxProgress, maxProgress)
+        if (this.maxProgress != maxProgressValue) {
+            this.maxProgress = maxProgressValue
+        }
+        val progressValue = typedArray.getFloat(R.styleable.CircularSeekbar_circularSeekbarProgress, progress)
+        if (this.progress != progressValue) {
+            this.progress = progressValue
+        }
     }
 
     private fun setupPaints() {
